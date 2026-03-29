@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Proposer une modification (branche brouillon)
+    url: https://github.com/DeVinci-FabLab/Official-Statutes/tree/brouillon
+    about: Pour travailler directement sur une proposition rédigée, consultez la branche brouillon.
+  - name: Security vulnerability
+    url: https://github.com/DeVinci-FabLab/Official-Statutes/security/advisories/new
+    about: Please report security issues privately via the GitHub Security Advisory flow.

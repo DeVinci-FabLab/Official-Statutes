@@ -1,0 +1,46 @@
+name: "Rapport d'erreur"
+description: Signalez une erreur dans le texte des statuts (faute, incohérence, oubli).
+title: "[Fix] "
+labels: ["fix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler cette erreur. Remplissez les champs ci-dessous aussi précisément que possible.
+
+  - type: input
+    id: article
+    attributes:
+      label: Article ou section concerné(e)
+      description: Indiquez le numéro de l'article ou de la section où se trouve l'erreur.
+      placeholder: "Ex : Article 2, Section 2.4"
+    validations:
+      required: true
+
+  - type: textarea
+    id: citation
+    attributes:
+      label: Texte actuel de la clause
+      description: Copiez-collez ici le passage exact des statuts tel qu'il est rédigé aujourd'hui.
+      placeholder: "« ... »"
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description de l'erreur
+      description: Décrivez l'erreur constatée.
+      placeholder: "Le texte dit « ... » mais il devrait dire « ... »"
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correction proposée
+      description: Si vous avez une suggestion de correction, indiquez-la ici. Ce champ est facultatif.
+      placeholder: "Je propose de remplacer par..."
+    validations:
+      required: false

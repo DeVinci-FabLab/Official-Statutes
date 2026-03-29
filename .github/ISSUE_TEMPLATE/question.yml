@@ -1,0 +1,46 @@
+name: "Demande de clarification"
+description: Posez une question sur l'interprétation ou la signification d'une clause des statuts.
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Vous avez du mal à comprendre une clause ou vous souhaitez en connaître l'interprétation officielle ? Posez votre question ici.
+
+  - type: input
+    id: article
+    attributes:
+      label: Article ou section concerné(e)
+      description: Indiquez l'article ou la section sur lequel porte votre question.
+      placeholder: "Ex : Article 2, Section 2.4.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: citation
+    attributes:
+      label: Texte de la clause concernée
+      description: Copiez-collez ici le passage exact des statuts sur lequel porte votre question.
+      placeholder: "« ... »"
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Votre question
+      description: Formulez votre question aussi clairement que possible.
+      placeholder: "Je ne comprends pas ce que signifie..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: Y a-t-il une situation particulière qui motive votre question ? (facultatif)
+      placeholder: "Je pose cette question dans le cadre de..."
+    validations:
+      required: false

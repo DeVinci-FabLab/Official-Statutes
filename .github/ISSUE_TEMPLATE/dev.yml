@@ -1,0 +1,42 @@
+name: "Changement technique"
+description: Signalez un besoin technique non lié à la rédaction des statuts (génération PDF, procédures, CI, documentation interne).
+title: "[Dev] "
+labels: ["dev"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ce template est destiné aux demandes techniques qui ne concernent pas directement le contenu des statuts.
+        Si votre demande porte sur le texte des statuts, utilisez plutôt les templates **Rapport d'erreur** ou **Nouvelle clause**.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de changement
+      description: Sélectionnez la catégorie qui correspond le mieux à votre demande.
+      options:
+        - Génération de documents PDF
+        - Intégration continue (CI)
+        - Procédure de contribution
+        - Documentation interne
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du changement souhaité
+      description: Décrivez ce que vous souhaitez voir mis en place ou modifié.
+      placeholder: "Je souhaite que..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: Y a-t-il un contexte particulier à connaître pour comprendre cette demande ? (facultatif)
+      placeholder: "Actuellement, le processus est... / Ce changement est nécessaire parce que..."
+    validations:
+      required: false

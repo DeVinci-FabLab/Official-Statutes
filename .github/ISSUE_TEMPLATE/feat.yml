@@ -1,0 +1,47 @@
+name: "Nouvelle clause ou amélioration"
+description: Proposez l'ajout d'une nouvelle clause ou une amélioration d'une clause existante.
+title: "[Feat] "
+labels: ["feat"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Vous souhaitez proposer une évolution des statuts ? Décrivez votre idée ci-dessous.
+        Toute proposition devra ensuite être soumise au Comité de Contrôle puis votée en Assemblée Générale Extraordinaire.
+
+  - type: input
+    id: article
+    attributes:
+      label: Article ou section concerné(e)
+      description: Indiquez l'article ou la section que vous souhaitez modifier, ou "Nouveau" s'il s'agit d'une nouvelle clause.
+      placeholder: "Ex : Article 3, Section 3.2 — ou : Nouveau"
+    validations:
+      required: true
+
+  - type: textarea
+    id: citation
+    attributes:
+      label: Texte actuel de la clause
+      description: Copiez-collez ici le passage exact des statuts tel qu'il est rédigé aujourd'hui. Laissez vide s'il s'agit d'une nouvelle clause.
+      placeholder: "« ... »"
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description de la modification souhaitée
+      description: Expliquez clairement ce que vous souhaitez changer ou ajouter.
+      placeholder: "Je propose d'ajouter / de modifier..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Justification
+      description: Pourquoi cette modification vous semble-t-elle nécessaire ou bénéfique pour l'association ?
+      placeholder: "Cette modification permettrait de..."
+    validations:
+      required: true
