@@ -20,7 +20,7 @@ Ce dépôt contient les statuts officiels de l'association **DeVinci Fablab**, r
 
 Les contributions sont les bienvenues ! Pour proposer des modifications ou des améliorations, plusieurs options s'offrent à vous :
 
-- [Ouvrir une issue](https://github.com/DeVinci-FabLab/Official-Statutes/issues) pour énoncer la modification proposée (tout le monde);
+- [Ouvrir une issue](https://github.com/DeVinci-FabLab/Official-Statutes/issues/new/choose) pour énoncer la modification proposée (tout le monde);
 - Travailler sur la branche [`brouillon`](https://github.com/DeVinci-FabLab/Official-Statutes/tree/brouillon) (sur demande aux Responsable Numérique);
 - Contacter directement les membres du Bureau pour discuter de la modification.
 
