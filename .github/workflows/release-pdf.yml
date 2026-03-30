@@ -1,0 +1,63 @@
+name: Generate and Attach PDF on Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    name: Convert Statuts.md to PDF
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache apt packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-texlive-${{ runner.os }}-v1
+
+      - name: Install Pandoc and XeLaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-xetex \
+            texlive-lang-french \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            fonts-linuxlibertine \
+            lmodern
+          fc-cache -fv
+
+      - name: Convert Markdown to PDF
+        run: |
+          pandoc Statuts.md \
+            --output Statuts.pdf \
+            --pdf-engine=xelatex \
+            --variable mainfont="Linux Libertine O" \
+            --variable sansfont="Linux Biolinum O" \
+            --variable fontsize=11pt \
+            --variable geometry="a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm" \
+            --variable lang=fr \
+            --variable babel-lang=french \
+            --variable colorlinks=true \
+            --variable linestretch=1.25 \
+            --metadata title="Statuts — DeVinci Fablab" \
+            --metadata author="DeVinci Fablab" \
+            --metadata date="$(date +'%d %B %Y')" \
+            --toc \
+            --toc-depth=3
+
+      - name: Upload PDF to GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            Statuts.pdf \
+            --clobber
